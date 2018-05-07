@@ -215,14 +215,10 @@
                           <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
                               <span class="carousel-control-next-icon"></span>
                           </a>
-                          <div class="btn-group" id="carouselButton">
-                              <button class="btn btn-outline-danger btn-sm" id="carousel-pause">
-                                  <span class="fa fa-pause"></span>
-                              </button>
-                              <button class="btn btn-outline-danger btn-sm" id="carousel-play">
-                                  <span class="fa fa-play"></span>
-                              </button>
-                          </div>
+                          <button class="btn btn-outline-danger btn-sm" id="carouselButton">
+                              <span class="fa fa-pause"></span>
+                          </button>
+
                       </div>
                   </div>
               </div>
@@ -257,7 +253,7 @@
                      <p class="hidden-xs-down">Featuring mouthwatering combinations
                         with a choice of five different salads, six enticing appetizers,
                         six main entrees and five choicest desserts.
-                        Free flowing bubbly and soft drinks. All for just $19.99 per person 
+                        Free flowing bubbly and soft drinks. All for just $19.99 per person
                      </p>
                   </div>
                   <img class="d-flex ml-3 img img-thumbnail align-self-center"
@@ -398,13 +394,24 @@
       <script src="node_modules/tether/dist/js/tether.min.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <script>
-        $(document).ready(function(){
+        $(document).ready(function()
+        {
             $('#myCarousel').carousel({interval: 2000});
-            $('#carousel-pause').click(function(){
-               $('#myCarousel').carousel('pause');
-            });
-            $('#carousel-play').click(function(){
-                $('#myCarousel').carousel('cycle');
+            $('#carouselButton').click(function()
+            {
+                if ($('#carouselButton').children('span').hasClass('fa-pause'))
+                {
+                    $('#myCarousel').carousel('pause');
+                    $('#carouselButton').children('span').removeClass('fa-pause');
+                    $('#carouselButton').children('span').addClass('fa-play');
+                }
+                else if ($('#carouselButton').children('span').hasClass('fa-play'))
+                {
+                    $('#myCarousel').carousel('cycle');
+                    $('#carouselButton').children('span').removeClass('fa-play');
+                    $('#carouselButton').children('span').addClass('fa-pause');
+                }
+
             });
         })
       </script>
