@@ -42,7 +42,7 @@
             <div class="modal-content">
                <div class="modal-header">
                   <h4 class="modal-title">Login</h4>
-                  <button type="button" class="close" data-dismiss="modal">
+                  <button type="button" class="close" id="loginCloseButton">
                      &times; <!-- display cross-->
                   </button>
                </div>
@@ -65,7 +65,7 @@
                         </div>
                      </div>
                      <div class="form-row float-right">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                         <button type="button" class="btn btn-secondary" id="loginCancelButton">Cancel</button>
                         <button type="button" class="btn btn-primary">Sign in</button>
                      </div>
                   </form>
@@ -79,7 +79,7 @@
               <div class="modal-content">
                   <div class="modal-header">
                       <h3 class="modal-title">Reserve a Table</h3>
-                      <button type="button" class="close" data-dismiss="modal">
+                      <button type="button" class="close" id="reservationCloseButton">
                           &times; <!-- display cross-->
                       </button>
                   </div>
@@ -141,7 +141,7 @@
                               </div>
                           </div>
                           <div class="form-row offset-md-2">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> &nbsp;
+                              <button type="button" class="btn btn-secondary" id="reservationCancelButton">Cancel</button> &nbsp;
                               <button type="submit" class="btn btn-primary">Reserve</button>
                           </div>
                       </form>
@@ -414,11 +414,27 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
             });
+
+            // Reservation Modal JQuery code
             $('#reservationButton').click(function(){
               $('#reserveTableModal').modal('show');
             });
+            $('#reservationCancelButton').click(function(){
+              $('#reserveTableModal').modal('hide');
+            });
+            $('#reservationCloseButton').click(function(){
+              $('#reserveTableModal').modal('hide');
+            });
+
+            // Login Modal JQuery code
             $('#loginButton').click(function() {
               $('#loginModal').modal('show');
+            });
+            $('#loginCancelButton').click(function() {
+              $('#loginModal').modal('hide');
+            });
+            $('#loginCloseButton').click(function() {
+              $('#loginModal').modal('hide');
             });
         })
       </script>
