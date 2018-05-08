@@ -43,7 +43,7 @@ body{
     z-index: 0;
 }
 
-.navbar-dark{
+.navbar-inverse{
     background-color: $background-dark;
 }
 
@@ -67,6 +67,17 @@ body{
             min-height: 300px;
         }
     }
+}
+
+.modal{
+  .modal-body{
+      background: $background-pale;
+  }
+
+  .modal-header{
+    background: $background-dark;
+    color: floralwhite;
+  }
 }
 
 #carouselButton{
